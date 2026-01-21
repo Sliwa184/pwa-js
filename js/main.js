@@ -6,3 +6,10 @@ window.onload = () => {
  .catch((error) => console.error('Service Worker registration failed:', error));
  }
 };
+
+// Implementacja powiadomień frontend
+Notification.requestPermission().then(permission => {
+ if (permission === 'granted') {
+   console.log('Notifications allowed');
+ }
+});
