@@ -55,3 +55,13 @@ self.addEventListener('fetch', (event) => {
  );
 });
 
+// Implementacja powiadomień
+self.addEventListener('push', event => {
+ const data = event.data?.json() || {};
+
+ self.registration.showNotification(data.title || 'Nowa wiadomość', {
+   body: data.body || 'Nowa treść w aplikacji',
+   icon: 'images/pwa-icon-192.png'
+ });
+});
+
